@@ -15,11 +15,11 @@
 
 开启抓包app后, Safari浏览器登录 https://bean.m.jd.com/bean/signIndex.action 点击签到并且出现签到日历后, 返回抓包app搜索关键字 functionId=signBean 复制请求头Cookie填入以下Key处的单引号内即可 */
 
-var Key = ''; //单引号内自行填写您抓取的Cookie
+var Key = 'pt_key=AAJg_hsNADA1Gp9651gMcAXAAd3U47K-4HQQRo0dy_aSpa609eVirrsJ5xkg1Kr0nH2kkidVLIY;pt_pin=51845294-963901'; //单引号内自行填写您抓取的Cookie
 
-var DualKey = ''; //如需双账号签到,此处单引号内填写抓取的"账号2"Cookie, 否则请勿填写
+var DualKey = 'pt_key=AAJg_hsjADDJ019qeinLDGOb_XnqsNkX8awMuqCjHw9LqNHHWqCWXutunDp7_DBn8BZtacnhJOY;pt_pin=jd_pBcRndgoODxd'; //如需双账号签到,此处单引号内填写抓取的"账号2"Cookie, 否则请勿填写
 
-var OtherKey = ''; //第三账号或以上的Cookie json串数据, 以下样例为第三第四账号：var OtherKey = '[{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"},{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"}]'
+var OtherKey = '[{"cookie":"pt_key=AAJhATTgADAQpouDW9lFxbd5jiJu-mdYWudPBNjbTV4n8XKziR37VKXLOmNq8nMRdVq_HnwEVTQ;pt_pin=jd_EJrqPujgpRta"},{"cookie":"pt_key=AAJg_ibFADBKkGw6Ac8EteNsoggtoY2nAR92xcX_wvGDNMOb20-wRbrM24R2sma41vlWCLYogwc;pt_pin=jd_44d9386a9d771"},{"cookie":"pt_key=AAJg_i3wADAW5UJYMVwTxkOoWOHf8H-oHnn55hZV8FE7Xc1DPu4opwstQnNHu96eLeg2lU-rlCc;pt_pin=jd_DJTydpDfMQdg"},{"cookie":"pt_key=AAJg_iVSADCz0jSjzQ97VYUnyvONcIiUwFkscspY-NypFoJZ-fPL-M6x7EXpvqTkdpwOU-rflnE;pt_pin=jd_WRFZdyFhZwwz"},{"cookie":"pt_key=AAJg_iUgADATWXRhFcqqdpWbZ1qHqDj7ZLPANASwPFhLQlfum5D-_2X52WS3B7jkTUnXm_gRdAg;pt_pin=jd_cKxWWAyrIAUx"},{"cookie":"pt_key=AAJg_iWHADDYrts3TXJ2hBq4R7UbO4PtK9AXztROxxaklXq-r3wDsZ7c9sa_7ZlIkkxZoohW9Kg;pt_pin=jd_ofvCfkHYudts"},{"cookie":"pt_key=AAJg4xNuADBLsoUbDuyeopgCI0grZX3mfB4NbpkcOXIId9VJfFAQYOMExGNfwULLyfoViikOhuQ;pt_pin=jd_bKWCKfHWkPOm"},{"cookie":"pt_key=AAJg4qrRADBa3q2nhfC_1lXEzFtTEDKXbtH-mNj1XZZ0j8l9eopx8W1-fQvGFOQc6iCEH3eZgZs;pt_pin=jd_600ef81746526"},{"cookie":"pt_key=AAJhAmtDADBW-eQmDxzMjf5EmqoCUP2FSc6Tq8ipPzcNY3XXsnTrXBRGM76ZKrGWRrJ4prGgQRA;pt_pin=zhyslj1988"}]'; //第三账号或以上的Cookie json串数据, 以下样例为第三第四账号：var OtherKey = '[{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"},{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"}]'
 
 /* 注1: 以上选项仅针对于JsBox或Node.js, 如果使用QX,Surge,Loon, 请使用脚本获取Cookie.
    注2: 双账号用户抓取"账号1"Cookie后, 请勿点击退出账号(可能会导致Cookie失效), 需清除浏览器资料或更换浏览器登录"账号2"抓取.
