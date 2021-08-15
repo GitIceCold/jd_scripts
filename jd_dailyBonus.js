@@ -38,11 +38,12 @@
  如需获取京东金融签到Body, 可进入"京东金融"APP (iOS), 在"首页"点击"签到"并签到一次, 返回抓包app搜索关键字 h5/m/appSign 复制请求体填入json串数据内即可
  */
 
-var Key = 'pt_key=AAJg_hsNADA1Gp9651gMcAXAAd3U47K-4HQQRo0dy_aSpa609eVirrsJ5xkg1Kr0nH2kkidVLIY;pt_pin=51845294-963901'; //单引号内自行填写您抓取的Cookie
+var Key = ''; //该参数已废弃; 仅用于下游脚本的兼容, 请使用json串数据 ↓
 
-var DualKey = 'pt_key=AAJg_hsjADDJ019qeinLDGOb_XnqsNkX8awMuqCjHw9LqNHHWqCWXutunDp7_DBn8BZtacnhJOY;pt_pin=jd_pBcRndgoODxd'; //如需双账号签到,此处单引号内填写抓取的"账号2"Cookie, 否则请勿填写
+var DualKey = ''; //该参数已废弃; 仅用于下游脚本的兼容, 请使用json串数据  ↓
 
-var OtherKey = '[{"cookie":"pt_key=AAJhATTgADAQpouDW9lFxbd5jiJu-mdYWudPBNjbTV4n8XKziR37VKXLOmNq8nMRdVq_HnwEVTQ;pt_pin=jd_EJrqPujgpRta"},{"cookie":"pt_key=AAJg_ibFADBKkGw6Ac8EteNsoggtoY2nAR92xcX_wvGDNMOb20-wRbrM24R2sma41vlWCLYogwc;pt_pin=jd_44d9386a9d771"},{"cookie":"pt_key=AAJg_i3wADAW5UJYMVwTxkOoWOHf8H-oHnn55hZV8FE7Xc1DPu4opwstQnNHu96eLeg2lU-rlCc;pt_pin=jd_DJTydpDfMQdg"},{"cookie":"pt_key=AAJhGOIzADCbhlvDvw9ZMS55oStEKF7CDl2hCZaf0D0hKQWCjbH7dlPeP501muDXUoD4MNLFK20;pt_pin=jd_WRFZdyFhZwwz"},{"cookie":"pt_key=AAJg_iUgADATWXRhFcqqdpWbZ1qHqDj7ZLPANASwPFhLQlfum5D-_2X52WS3B7jkTUnXm_gRdAg;pt_pin=jd_cKxWWAyrIAUx"},{"cookie":"pt_key=AAJg_iWHADDYrts3TXJ2hBq4R7UbO4PtK9AXztROxxaklXq-r3wDsZ7c9sa_7ZlIkkxZoohW9Kg;pt_pin=jd_ofvCfkHYudts"},{"cookie":"pt_key=AAJg4xNuADBLsoUbDuyeopgCI0grZX3mfB4NbpkcOXIId9VJfFAQYOMExGNfwULLyfoViikOhuQ;pt_pin=jd_bKWCKfHWkPOm"},{"cookie":"pt_key=AAJhFb1YADD0VvYk7xccwdMDvFoWJnAMjNpMUZ1RNBEAGutItVFiIahj4XGSeNawt95rycbR6Rk;pt_pin=jd_600ef81746526"},{"cookie":"pt_key=AAJhAmtDADBW-eQmDxzMjf5EmqoCUP2FSc6Tq8ipPzcNY3XXsnTrXBRGM76ZKrGWRrJ4prGgQRA;pt_pin=zhyslj1988"}]'; //第三账号或以上的Cookie json串数据, 以下样例为第三第四账号：var OtherKey = '[{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"},{"cookie":"pt_key=xxxxxx;pt_pin=yyyyyy"}]'
+var OtherKey = ``; //无限账号Cookie json串数据, 请严格按照json格式填写, 具体格式请看以下样例:
+
 
 /*以下样例为双账号("cookie"为必须,其他可选), 第一个账号仅包含Cookie, 第二个账号包含Cookie和金融签到Body:
 
