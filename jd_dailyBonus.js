@@ -1,6 +1,6 @@
 /*************************
  京东多合一签到脚本
- 更新时间: 2021.08.15 19:00 v2.1.1
+ 更新时间: 2021.08.15 19:00 v2.1.0
  有效接口: 20+
  脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
  电报频道: @NobyDa
@@ -9,10 +9,7 @@
  *************************
  【 QX, Surge, Loon 说明 】 :
  *************************
- 初次使用时, app配置文件添加脚本配置, 并启用Mitm后:
- Safari浏览器打开登录 https://home.m.jd.com/myJd/newhome.action 点击"我的"页面
- 或者使用旧版网址 https://bean.m.jd.com/bean/signIndex.action 点击签到并且出现签到日历
- 如果通知获取Cookie成功, 则可以使用此签到脚本. 注: 请勿在京东APP内获取!!!
+ 初次使用时, app配置文件添加脚本配置,并启用Mitm后, Safari浏览器打开登录 https://home.m.jd.com/myJd/newhome.action , 点击个人中心页面, 如果通知获得cookie成功, 则可以使用此签到脚本。 注: 请勿在京东APP内获取!!!
  获取京东金融签到Body说明: 正确添加脚本配置后, 进入"京东金融"APP, 在"首页"点击"签到"并签到一次, 待通知提示成功即可.
  由于cookie的有效性(经测试网页Cookie有效周期最长31天)，如果脚本后续弹出cookie无效的通知，则需要重复上述步骤。
  签到脚本将在每天的凌晨0:05执行, 您可以修改执行时间。 因部分接口京豆限量领取, 建议调整为凌晨签到。
@@ -21,7 +18,7 @@
  【 配置多京东账号签到说明 】 :
  *************************
  正确配置QX、Surge、Loon后, 并使用此脚本获取"账号1"Cookie成功后, 请勿点击退出账号(可能会导致Cookie失效), 需清除浏览器资料或更换浏览器登录"账号2"获取即可; 账号3或以上同理.
- 注: 如需清除所有Cookie, 您可开启脚本内"DeleteCookie"选项 (第114行)
+ 注: 如需清除所有Cookie, 您可开启脚本内"DeleteCookie"选项 (第110行)
  *************************
  【 JSbox, Node.js 说明 】 :
  *************************
@@ -29,11 +26,11 @@
  如需获取京东金融签到Body, 可进入"京东金融"APP (iOS), 在"首页"点击"签到"并签到一次, 返回抓包app搜索关键字 h5/m/appSign 复制请求体填入json串数据内即可
  */
 
-var Key = 'pt_key=AAJhJ1LaADAi5LlYTE8qyDXa020plBt9dZa12vbOOjtmAesgVhZd5YAEeyuodxmwYD-tPcGn4E8;pt_pin=51845294-963901;'; //该参数已废弃; 仅用于下游脚本的兼容, 请使用json串数据 ↓
+var Key = 'pt_key=AAJhJ1LaADAi5LlYTE8qyDXa020plBt9dZa12vbOOjtmAesgVhZd5YAEeyuodxmwYD-tPcGn4E8;pt_pin=51845294-963901'; //单引号内自行填写您抓取的Cookie
 
-var DualKey = 'pt_key=AAJhJ1MIADB3mRWKFVqu_ewj01q9agxgglclFaxx-DY88YLgV-kQMeXbUoPLlKfzfh5eNghGgJM;pt_pin=jd_pBcRndgoODxd;'; //该参数已废弃; 仅用于下游脚本的兼容, 请使用json串数据  ↓
+var DualKey = 'pt_key=AAJhJ1MIADB3mRWKFVqu_ewj01q9agxgglclFaxx-DY88YLgV-kQMeXbUoPLlKfzfh5eNghGgJM;pt_pin=jd_pBcRndgoODxd'; //如需双账号签到,此处单引号内填写抓取的"账号2"Cookie, 否则请勿填写
 
-var OtherKey = `[{"cookie":"pt_key=AAJhJ1LaADAi5LlYTE8qyDXa020plBt9dZa12vbOOjtmAesgVhZd5YAEeyuodxmwYD-tPcGn4E8;pt_pin=51845294-963901;"},{"cookie":"pt_key=AAJhJ1MIADB3mRWKFVqu_ewj01q9agxgglclFaxx-DY88YLgV-kQMeXbUoPLlKfzfh5eNghGgJM;pt_pin=jd_pBcRndgoODxd;"},{"cookie":"pt_key=AAJhJ0SaADAvuUMy_NvOlqP4uw2H1QJX3l5vCCAvsqvv0Q2BazpXrD35RORQd6oD7NmTptr40nA;pt_pin=jd_EJrqPujgpRta;"},{"cookie":"pt_key=AAJhJ0xNADBi6V2O0fLXJgAdZO8LefE3STbrlHd63sGL8lvSGWSq6Ob7JuwDcVqDlMf0IJJdzDc;pt_pin=jd_DJTydpDfMQdg;"},{"cookie":"pt_key=AAJhJiNLADApKaqMZBQE_L4MgzGV0THOaRi6FZurOt9Bnenbj8P7SVfDc3SGQCjmhciJBeLGZDo;pt_pin=jd_44d9386a9d771;"},{"cookie":"pt_key=AAJhJwNPADD7PRZLIr2P48EaMNlaszolMIU1x6B2Q-wpdPhBwcwEk3_pPmYe85xwDp8fz1L9eSE;pt_pin=zhyslj1988;"},{"cookie":"pt_key=AAJhJwRtADCKr7_f5zfAPSnyvQWHmZgA4lCFObSCOzkQ6ILQ9m6xGU7CBIJwvl8f4lQrcxI1uas;pt_pin=jd_600ef81746526;"},{"cookie":"pt_key=AAJhJw9hADDbFnW1q8SUKVDFMEj13GTneRFtMXUIyRuh1Cd9oguJi3wjQ84-rW6Yh8RrU45j53s;pt_pin=jd_cKxWWAyrIAUx;"},{"cookie":"pt_key=AAJhJw_cADDciLOTd3V4KtXYnGIZHYX6kRuAcIFsgspNOmlxe1jmn2vfqiN_2BnVEaAMbmVeo5A;pt_pin=jd_WRFZdyFhZwwz;"},{"cookie":"pt_key=AAJhJxAbADB06_Lby-04LKEmVJ1XsmyvV4jQvwjw3Rnqr_4dRx_4j0wvdDudUp58wtDq30KiXjU;pt_pin=jd_ofvCfkHYudts;"},{"cookie":"pt_key=AAJhJ0zTADBLr85wChgYXpILLEhXXwK0-zuLV8vmCSNB5HTkBUuvTMp-Aln_pB2UFuEM-c-KHGg;pt_pin=jd_GeOICnuSDuPg;"}]`; //无限账号Cookie json串数据, 请严格按照json格式填写, 具体格式请看以下样例:
+var OtherKey = '[{"cookie":"pt_key=AAJhJ0SaADAvuUMy_NvOlqP4uw2H1QJX3l5vCCAvsqvv0Q2BazpXrD35RORQd6oD7NmTptr40nA;pt_pin=jd_EJrqPujgpRta"},{"cookie":"pt_key=AAJhJ0xNADBi6V2O0fLXJgAdZO8LefE3STbrlHd63sGL8lvSGWSq6Ob7JuwDcVqDlMf0IJJdzDc;pt_pin=jd_DJTydpDfMQdg"},{"cookie":"pt_key=AAJhJiNLADApKaqMZBQE_L4MgzGV0THOaRi6FZurOt9Bnenbj8P7SVfDc3SGQCjmhciJBeLGZDo;pt_pin=jd_44d9386a9d771"},{"cookie":"pt_key=AAJhJwNPADD7PRZLIr2P48EaMNlaszolMIU1x6B2Q-wpdPhBwcwEk3_pPmYe85xwDp8fz1L9eSE;pt_pin=zhyslj1988"},{"cookie":"pt_key=AAJhJwRtADCKr7_f5zfAPSnyvQWHmZgA4lCFObSCOzkQ6ILQ9m6xGU7CBIJwvl8f4lQrcxI1uas;pt_pin=jd_600ef81746526"},{"cookie":"pt_key=AAJhJw9hADDbFnW1q8SUKVDFMEj13GTneRFtMXUIyRuh1Cd9oguJi3wjQ84-rW6Yh8RrU45j53s;pt_pin=jd_cKxWWAyrIAUx"},{"cookie":"pt_key=AAJhJw_cADDciLOTd3V4KtXYnGIZHYX6kRuAcIFsgspNOmlxe1jmn2vfqiN_2BnVEaAMbmVeo5A;pt_pin=jd_WRFZdyFhZwwz"},{"cookie":"pt_key=AAJhJxAbADB06_Lby-04LKEmVJ1XsmyvV4jQvwjw3Rnqr_4dRx_4j0wvdDudUp58wtDq30KiXjU;pt_pin=jd_ofvCfkHYudts"},{"cookie":"pt_key=AAJhJ0zTADBLr85wChgYXpILLEhXXwK0-zuLV8vmCSNB5HTkBUuvTMp-Aln_pB2UFuEM-c-KHGg;pt_pin=jd_GeOICnuSDuPg"}]';
 
 /*以下样例为双账号("cookie"为必须,其他可选), 第一个账号仅包含Cookie, 第二个账号包含Cookie和金融签到Body:
 var OtherKey = `[{
@@ -54,7 +51,7 @@ var OtherKey = `[{
 京东多合一签到 = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 获取京东Cookie = type=http-request,requires-body=1,pattern=^https:\/\/(api\.m|me-api|ms\.jr)\.jd\.com\/(client\.action\?functionId=signBean|user_new\/info\/GetJDUserInfoUnion\?|gw\/generic\/hy\/h5\/m\/appSign\?),script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 [MITM]
-hostname = ms.jr.jd.com, me-api.jd.com, api.m.jd.com
+hostname = ms.jr.jd.com, me-api.jd.com
 *************************
 【Loon 2.1+ 脚本配置】:
 *************************
@@ -62,7 +59,7 @@ hostname = ms.jr.jd.com, me-api.jd.com, api.m.jd.com
 cron "5 0 * * *" tag=京东多合一签到, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 http-request ^https:\/\/(api\.m|me-api|ms\.jr)\.jd\.com\/(client\.action\?functionId=signBean|user_new\/info\/GetJDUserInfoUnion\?|gw\/generic\/hy\/h5\/m\/appSign\?) tag=获取京东Cookie, requires-body=true, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 [MITM]
-hostname = ms.jr.jd.com, me-api.jd.com, api.m.jd.com
+hostname = ms.jr.jd.com, me-api.jd.com
 *************************
 【 QX 1.0.10+ 脚本配置 】 :
 *************************
@@ -75,7 +72,7 @@ hostname = ms.jr.jd.com, me-api.jd.com, api.m.jd.com
 # 获取钢镚签到body.
 ^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/hy\/h5\/m\/appSign\? url script-request-body https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 [mitm]
-hostname = ms.jr.jd.com, me-api.jd.com, api.m.jd.com
+hostname = ms.jr.jd.com, me-api.jd.com
 *************************/
 
 var LogDetails = false; //是否开启响应日志, true则开启
@@ -252,7 +249,7 @@ function notify() {
       const Name = DualKey || OtherKey.length > 1 ? `【签到号${cnNum[$nobyda.num]||$nobyda.num}】:  ${DName}\n` : ``
       const disables = $nobyda.read("JD_DailyBonusDisables")
       const amount = disables ? disables.split(",").length : 0
-      const disa = !notify || amount ? `【温馨提示】:  检测到${$nobyda.disable?`上次执行意外崩溃, `:``}已禁用${notify?`${amount}个`:`所有`}接口, 如需开启请前往BoxJs或查看脚本内第118行注释.\n` : ``
+      const disa = !notify || amount ? `【温馨提示】:  检测到${$nobyda.disable?`上次执行意外崩溃, `:``}已禁用${notify?`${amount}个`:`所有`}接口, 如需开启请前往BoxJs或查看脚本内第114行注释.\n` : ``
       $nobyda.notify("", "", Name + one + two + three + four + five + disa + notify, {
         'media-url': $nobyda.headUrl || 'https://cdn.jsdelivr.net/gh/NobyDa/mini@master/Color/jd.png'
       });
@@ -1610,7 +1607,6 @@ function checkFormat(value) { //check format and delete duplicates
     k = ((i.cookie || '').match(/(pt_key|pt_pin)=.+?;/g) || []).sort();
     if (k.length == 2) {
       if ((n = k[1]) && !c[n]) {
-        i.userName = i.userName ? i.userName : decodeURIComponent(n.split(/pt_pin=(.+?);/)[1]);
         i.cookie = k.join('')
         if (i.jrBody && !i.jrBody.includes('reqData=')) {
           console.log(`异常钢镚Body已过滤: ${i.jrBody}`)
@@ -1653,7 +1649,7 @@ function CookieUpdate(oldValue, newValue, path = 'cookie') {
     item = total.length;
   }
   return {
-    total: checkFormat(total),
+    total,
     type, //-1: same, 1: add, 2:update
     item,
     name: decodeURIComponent(name)
