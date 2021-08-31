@@ -218,30 +218,6 @@ jd_scripts
 ```
 > 定时任务命之后，也就是 `>>` 符号之前加上 `|ts` 可在日志每一行前面显示时间，如下图:
 > ![image](https://user-images.githubusercontent.com/6993269/99031839-09e04b00-25b3-11eb-8e47-0b6515a282bb.png)
--
-● 目录文件配置好之后在 jd_scripts目录执行。
-docker-compose up -d 启动（修改docker-compose.yml后需要使用此命令使更改生效）；
-docker-compose logs 打印日志；
-docker-compose logs -f 打印日志，-f表示跟随日志； docker logs -f jd_scripts 和上面两条相比可以显示汉字； docker-compose pull 更新镜像；
-docker-compose stop 停止容器；
-docker-compose restart 重启容器；
-docker-compose down 停止并删除容器；
-● 你可能会用到的命令
-docker exec -it jd_scripts /bin/sh -c 'git -C /scripts pull && node /scripts/jd_bean_change.js' 手动运行一脚本
-docker exec -it jd_scripts /bin/sh -c 'env' 查看设置的环境变量
-docker exec -it jd_scripts /bin/sh -c 'crontab -l' 查看已生效的crontab_list定时器任务
-docker exec -it jd_scripts sh -c "docker_entrypoint.sh" 手动更新jd_scripts仓库最新脚本
-docker exec -it jd_scripts /bin/sh 仅进入容器命令
-rm -rf logs/*.log 删除logs文件夹里面所有的日志文件
-
-docker-compose.yml
-#使用自定义定任务追加默认任务之后，上面volumes挂载之后这里配置对应的文件名
-    - CUSTOM_LIST_FILE=my_crontab_list.sh
-
-
-
-sync; echo 1 > /proc/sys/vm/drop_caches
-
 - 目录文件配置好之后在 `jd_scripts`目录执行。  
  `docker-compose up -d` 启动（修改docker-compose.yml后需要使用此命令使更改生效）；  
  `docker-compose logs` 打印日志；  
