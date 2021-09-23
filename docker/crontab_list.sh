@@ -5,7 +5,7 @@
 
 ##############活动##############
 #东东农场
-15 0-18/6 * * * node /scripts/jd_fruit_new.js >> /scripts/logs/jd_fruit_new.log 2>&1
+1 0-18/6 * * * node /scripts/jd_fruit_new.js >> /scripts/logs/jd_fruit_new.log 2>&1
 #宠汪汪
 35 0-23/2 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
 #宠汪汪兑换
