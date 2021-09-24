@@ -4,8 +4,7 @@
 30 * * * * sh +x /scripts/docker/auto_help.sh collect >> /scripts/logs/auto_help_collect.log 2>&1
 
 ##############活动##############
-#东东农场
-1 0-18/6 * * * node /scripts/jd_fruit_new.js >> /scripts/logs/jd_fruit_new.log 2>&1
+
 #宠汪汪
 35 0-23/2 * * * node /scripts/jd_joy.js >> /scripts/logs/jd_joy.log 2>&1
 #宠汪汪兑换
@@ -65,7 +64,7 @@
 #种豆得豆
 44 0-23/6 * * * node /scripts/jd_plantBean.js >> /scripts/logs/jd_plantBean.log 2>&1
 #东东农场
-#15 0-18/6 * * * node /scripts/jd_fruit.js >> /scripts/logs/jd_fruit.log 2>&1
+1 0-18/6 * * * node /scripts/jd_fruit.js >> /scripts/logs/jd_fruit.log 2>&1
 #删除优惠券
 0 3,20 * * * node /scripts/jd_delCoupon.js >> /scripts/logs/jd_delCoupon.log 2>&1
 #
@@ -125,7 +124,7 @@
 #
 15-55/20 * * * * node /scripts/jd_health_collect.js >> /scripts/logs/jd_health_collect.log 2>&1
 #十秒阅读
-0 8-23/1 * * * node /scripts/jd_read.js >> /scripts/logs/jd_read.log 2>&1
+10 0-23/2 * * * node /scripts/jd_read.js >> /scripts/logs/jd_read.log 2>&1
 #京东到家果园
 10 0,8,11,17 * * * node /scripts/jd_jddj_fruit.js >> /scripts/logs/jd_jddj_fruit.log 2>&1
 #京东到家
@@ -145,7 +144,7 @@
 #送豆得豆
 5 0,12 * * * node /scripts/jd_SendBean.js >> /scripts/logs/jd_SendBean.log 2>&1
 #
-8 4,6 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
+20 0,2 * * * node /scripts/jd_wish.js >> /scripts/logs/jd_wish.log 2>&1
 #粉丝互动
 4 0 * * * node /scripts/jd_wxFans.js >> /scripts/logs/jd_wxFans.log 2>&1
 #财富岛气球
@@ -184,24 +183,18 @@
 45 2,20 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 #开卡20
 30 8,2 1-21 9 * node /scripts/jd_opencard20.js >> /scripts/logs/jd_opencard20.log 2>&1
-#开卡22
-34 5,17 3-13 9 * node /scripts/jd_opencard22.js >> /scripts/logs/jd_opencard22.log 2>&1
-#开卡23
-34 4,16 3-10 9 * node /scripts/jd_opencard23.js >> /scripts/logs/jd_opencard23.log 2>&1
-#开卡24
-24 3,18 6-17 9 * node /scripts/jd_opencard24.js >> /scripts/logs/jd_opencard24.log 2>&1
-#开卡25
-24 3,18 6-17 9 * node /scripts/jd_opencard25.js >> /scripts/logs/jd_opencard25.log 2>&1
 #开卡26
 17 2,20 8-30 9 * node /scripts/jd_opencard26.js >> /scripts/logs/jd_opencard26.log 2>&1
 #开卡27
 5 0,15 * * * node /scripts/jd_opencard27.js >> /scripts/logs/jd_opencard27.log 2>&1
-#开卡28
-28 1,19 9-16 9 * node /scripts/jd_opencard28.js >> /scripts/logs/jd_opencard28.log 2>&1
-#开卡29
-4 4,19 13-23 9 * node /scripts/jd_opencard29.js >> /scripts/logs/jd_opencard29.log 2>&1
-#开卡30
-22 1,18 1-22 * * node /scripts/jd_opencard30.js >> /scripts/logs/jd_opencard30.log 2>&1
+#开卡33
+34 4,19 18-28 9 * node /scripts/jd_opencard33.js >> /scripts/logs/jd_opencard33.log 2>&1
+#开卡34
+3 3,18 18-28 9 * node /scripts/jd_opencard34.js >> /scripts/logs/jd_opencard34.log 2>&1
+#开卡35
+30 5 * 9 * node /scripts/jd_opencard35.js >> /scripts/logs/jd_opencard35.log 2>&1
+#开卡36
+18 2,14 22-30 9 * node /scripts/jd_opencard36.js >> /scripts/logs/jd_opencard36.log 2>&1
 #希捷品牌日瓜分百万京豆
 17 2,10 * 9,10 * node /scripts/jd_UnknownTask4.js >> /scripts/logs/jd_UnknownTask4.log 2>&1
 #积分换话费
@@ -212,14 +205,10 @@
 20 9 * * * node /scripts/jd_yqyl.js >> /scripts/logs/jd_yqyl.log 2>&1
 #
 20 3,6,9 * * * node /scripts/jd_dreamfactory_tuan.js >> /scripts/logs/jd_dreamfactory_tuan.log 2>&1
-#京东工业品抽奖
-10 6 17,18 8 * node /scripts/jd_industryLottery.js >> /scripts/logs/jd_industryLottery.log 2>&1
 #京喜领红包
 23 0,6,12,21 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 #超级直播间盲盒抽京豆
 1 18,20 * * * node /scripts/jd_super_mh.js >> /scripts/logs/jd_super_mh.log 2>&1
-#京东汽车兑换
-0 0 * * * node /scripts/jd_car_exchange.js >> /scripts/logs/jd_car_exchange.log 2>&1
 #心相印
 12 9,15 1-30 9,10 * node /scripts/jd_xinxiangyin.js >> /scripts/logs/jd_xinxiangyin.log 2>&1
 # 内容鉴赏官
@@ -230,8 +219,18 @@
 5 * * * * node /scripts/jd_cfd_mooncake.js >> /scripts/logs/jd_cfd_mooncake.log 2>&1
 # 影像馆
 23 10,21 13-26 9 * node /scripts/jd_film_museum.js >> /scripts/logs/jd_film_museum.log 2>&1
-#
-0 6 * * * node /scripts/jd_focus.js >> /scripts/logs/jd_focus.log 2>&1
+# 企有此礼
+30 0,20 * * * node /scripts/jd_qycl.js >> /scripts/logs/jd_qycl.log 2>&1
+# 京东价格保护
+30 2 * * * node /scripts/jd_priceProtect.js >> /scripts/logs/jd_priceProtect.log 2>&1
+# 东东世界
+15 3,16 * * * node /scripts/jd_ddworld.js >> /scripts/logs/jd_ddworld.log 2>&1
+# 京东手机狂欢城
+0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
+# 东东玩家
+20 0,16 * * * node /scripts/jd_ddwj.js >> /scripts/logs/jd_ddwj.log 2>&1
+# 热血心跳,狂解压
+5 6,18 * * * node /scripts/jd_decompression.js >> /scripts/logs/jd_decompression.log 2>&1
 #早起签到
 1 6,7 * * * python3 /jd/scripts/jd_zqfl.py >> /jd/log/jd_zqfl.log 2>&1
 #

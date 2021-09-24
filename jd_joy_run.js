@@ -256,7 +256,14 @@ async function getToken() {
 }
 function readToken() {
   return new Promise(resolve => {
-    $.get({url: `https://cdn.xia.me/gettoken`,headers:{'Host':'jdsign.cf'}, 'timeout': 10000}, (err, resp, data) => {
+    $.$.get({
+      url: `https://cdn.nz.lu/gettoken`,
+      headers: {
+        'Host': 'jdsign.cf',
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88'
+      },
+      timeout: 30 * 1000
+    }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -346,7 +353,7 @@ async function invite(invite_pins) {
 function enterRoom(invitePin) {
   return new Promise(resolve => {
     let lkt = new Date().getTime()
-    let lks = $.md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
+    let lks = $.md5('' + 'JL1VTNRadM68cIMQ' + lkt).toString()
     headers['lkt'] = lkt;
     headers['lks'] = lks;
     headers.Cookie = cookie;
@@ -354,7 +361,7 @@ function enterRoom(invitePin) {
     headers['Content-Type'] = "application/json";
     let opt = {
       // url: "//jdjoy.jd.com/common/pet/getPetTaskConfig?reqSource=h5",
-      url: `//draw.jdfcloud.com/common/pet/enterRoom/h5?reqSource=h5&invitePin=${encodeURI(invitePin)}&inviteSource=task_invite&shareSource=weapp&inviteTimeStamp=${Date.now()}&invokeKey=RtKLB8euDo7KwsO0`,
+      url: `//draw.jdfcloud.com/common/pet/enterRoom/h5?reqSource=h5&invitePin=${encodeURI(invitePin)}&inviteSource=task_invite&shareSource=weapp&inviteTimeStamp=${Date.now()}&invokeKey=JL1VTNRadM68cIMQ`,
       method: "GET",
       data: {},
       credentials: "include",
@@ -386,14 +393,14 @@ function enterRoom(invitePin) {
 function helpInviteFriend(friendPin) {
   return new Promise((resolve) => {
     let lkt = new Date().getTime()
-    let lks = $.md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
+    let lks = $.md5('' + 'JL1VTNRadM68cIMQ' + lkt).toString()
     headers['lkt'] = lkt;
     headers['lks'] = lks;
     headers.Cookie = cookie;
     headers.LKYLToken = $.LKYLToken;
     let opt = {
       // url: "//jdjoy.jd.com/common/pet/getPetTaskConfig?reqSource=h5",
-      url: `//draw.jdfcloud.com/common/pet/helpFriend?friendPin=${encodeURI(friendPin)}&reqSource=h5&invokeKey=RtKLB8euDo7KwsO0`,
+      url: `//draw.jdfcloud.com/common/pet/helpFriend?friendPin=${encodeURI(friendPin)}&reqSource=h5&invokeKey=JL1VTNRadM68cIMQ`,
       method: "GET",
       data: {},
       credentials: "include",
@@ -461,14 +468,14 @@ async function run(run_pins) {
 function combatHelp(friendPin) {
   return new Promise(resolve => {
     let lkt = new Date().getTime()
-    let lks = $.md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
+    let lks = $.md5('' + 'JL1VTNRadM68cIMQ' + lkt).toString()
     headers['lkt'] = lkt;
     headers['lks'] = lks;
     headers.Cookie = cookie;
     headers.LKYLToken = $.LKYLToken;
     let opt = {
       // url: "//jdjoy.jd.com/common/pet/getPetTaskConfig?reqSource=h5",
-      url: `//draw.jdfcloud.com//common/pet/combat/help?friendPin=${encodeURI(friendPin)}&invokeKey=RtKLB8euDo7KwsO0`,
+      url: `//draw.jdfcloud.com//common/pet/combat/help?friendPin=${encodeURI(friendPin)}&invokeKey=JL1VTNRadM68cIMQ`,
       method: "GET",
       data: {},
       credentials: "include",
@@ -504,14 +511,14 @@ function combatHelp(friendPin) {
 function combatDetail(invitePin) {
   return new Promise(resolve => {
     let lkt = new Date().getTime()
-    let lks = $.md5('' + 'RtKLB8euDo7KwsO0' + lkt).toString()
+    let lks = $.md5('' + 'JL1VTNRadM68cIMQ' + lkt).toString()
     headers['lkt'] = lkt;
     headers['lks'] = lks;
     headers.Cookie = cookie;
     headers.LKYLToken = $.LKYLToken;
     let opt = {
       // url: "//jdjoy.jd.com/common/pet/getPetTaskConfig?reqSource=h5",
-      url: `//draw.jdfcloud.com/common/pet/combat/detail/v2?help=true&inviterPin=${encodeURI(invitePin)}&reqSource=h5&invokeKey=RtKLB8euDo7KwsO0`,
+      url: `//draw.jdfcloud.com/common/pet/combat/detail/v2?help=true&inviterPin=${encodeURI(invitePin)}&reqSource=h5&invokeKey=JL1VTNRadM68cIMQ`,
       method: "GET",
       data: {},
       credentials: "include",
