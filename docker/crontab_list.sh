@@ -54,7 +54,7 @@
 #
 5 3,19 * * * node /scripts/jd_unsubscribe.js >> /scripts/logs/jd_unsubscribe.log 2>&1
 #东东萌宠
-45 6-18/6 * * * node /scripts/jd_pet.js >> /scripts/logs/jd_pet.log 2>&1
+15 0-18/6 * * * node /scripts/jd_pet.js >> /scripts/logs/jd_pet.log 2>&1
 #锦鲤红包
 1 2 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1
 #挑一挑
