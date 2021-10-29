@@ -2,7 +2,7 @@
 活动入口： 京东极速版-我的-发财大赢家
 已支持IOS双京东账号, Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
-cron "1 5,10 * * *" jd/jd_fcdyj.js
+cron 1 2,10 * * * jd/jd_fcdyj.js
 */
 const $ = new Env('发财大赢家');
 //Node.js用户请在jdCookie.js处填写京东ck;
@@ -41,7 +41,7 @@ const JD_API_HOST = `https://api.m.jd.com`;
     $.needhelp = true
     $.canDraw = false
     $.canHelp = true;
-    $.linkid = "yMVR-_QKRd2Mq27xguJG-w"
+    $.linkid = "PFbUR7wtwUcQ860Sn8WRfw"
     //开包 查询   
     for (let i = openred-1; i < openred; i++) {
         cookie = cookiesArr[i];

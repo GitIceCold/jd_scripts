@@ -36,7 +36,7 @@
 #京东资产变动通知
 0 12 * * * node /scripts/jd_bean_change.js >> /scripts/logs/jd_bean_change.log 2>&1
 #京东极速版
-0 6 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1
+0 1,7 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1
 #京东抽奖机&内部互助
 34 3,5 * * * node /scripts/jd_lotteryMachine.js >> /scripts/logs/jd_lotteryMachine.log 2>&1
 #我是大老板
@@ -175,14 +175,14 @@
 45 2,20 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
 #开卡42
 36 2,19 15-31 10 * node /scripts/jd_opencard42.js >> /scripts/logs/jd_opencard42.log 2>&1
-#开卡43
-47 4 11-26 10 * node /scripts/jd_opencard43.js >> /scripts/logs/jd_opencard43.log 2>&1
-#开卡44
-12 2,18 * * * node /scripts/jd_opencard44.js >> /scripts/logs/jd_opencard44.log 2>&1
-#开卡45
-38 1,20 * * * node /scripts/jd_opencard45.js >> /scripts/logs/jd_opencard45.log 2>&1
 #开卡46
 18 1,20  * * * node /scripts/jd_opencard46.js >> /scripts/logs/jd_opencard46.log 2>&1
+#开卡47
+26 2,22 * * * node /scripts/jd_opencard47.js >> /scripts/logs/jd_opencard47.log 2>&1
+#开卡48
+28 6,22 21-31 10 * node /scripts/jd_opencard48.js >> /scripts/logs/jd_opencard48.log 2>&1
+#开卡49
+8 0,22 * * * node /scripts/jd_opencard49.js >> /scripts/logs/jd_opencard49.log 2>&1
 #积分换话费
 43 5,17 * * * node /scripts/jd_dwapp.js >> /scripts/logs/jd_dwapp.log 2>&1
 # 领券中心签到
@@ -197,8 +197,6 @@
 1 18,20 * * * node /scripts/jd_super_mh.js >> /scripts/logs/jd_super_mh.log 2>&1
 # 内容鉴赏官
 5 2,5,16 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
-# 明星小店
-10 9,18 * * * node /scripts/jd_star_shop.js >> /scripts/logs/jd_star_shop.log 2>&1
 # 京喜财富岛月饼
 5 * * * * node /scripts/jd_cfd_mooncake.js >> /scripts/logs/jd_cfd_mooncake.log 2>&1
 # 京东价格保护
@@ -209,8 +207,8 @@
 31 2,8 * * * node /scripts/jd_mf.js >> /scripts/logs/jd_mf.log 2>&1
 # 魔方
 11 7,19 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
-# 魔方兑换
-0 0 * * * node /scripts/jd_mofang_exchange.js >> /scripts/logs/jd_mofang_exchange.log 2>&1
+# 双11红包
+0 0,12 * * * node /scripts/jd_red.js >> /scripts/logs/jd_red.log 2>&1
 # 芥么签到
 11 0,9 * * * node /scripts/jd_jmsign.js >> /scripts/logs/jd_jmsign.log 2>&1
 # 芥么赚豪礼
@@ -233,10 +231,26 @@
 11 0,9 * * * node /scripts/jd_superMarket_qjd.js >> /scripts/logs/jd_superMarket_qjd.log 2>&1
 # 预售福利机
 5 0,2 * * * node /scripts/jd_ys.js >> /scripts/logs/jd_ys.log 2>&1
-# hyj
-0 * * * * node /scripts/jd_hyj.js >> /scripts/logs/jd_hyj.log 2>&1
 # 选品官
-23 8,19 * * * node /scripts/jd_selectionOfficer.js >> /scripts/logs/jd_selectionOfficer.log 2>&1
+23 8,19 * * * node /scripts/jd_selectionOffice.js >> /scripts/logs/jd_selectionOffice.log 2>&1
+# 手机狂欢城
+0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
+# 手机狂欢城助力
+10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
+# 电竞预言家
+23 10,11 * * * node /scripts/jd_lol.js >> /scripts/logs/jd_lol.log 2>&1
+# 集魔力卡召唤大奖
+10 7,21 * * * node /scripts/jd_jika.js >> /scripts/logs/jd_jika.log 2>&1
+# 发财大赢家
+1 2,10 * * * node /scripts/jd_fcdyj.js >> /scripts/logs/jd_fcdyj.log 2>&1
+# 翻翻乐
+20 * * * * node /scripts/jd_big_winner.js >> /scripts/logs/jd_big_winner.log 2>&1
+# 潮玩儿制躁团
+23 9,12 * * * node /scripts/jd_zzt.js >> /scripts/logs/jd_zzt.log 2>&1
+# 京东极速版签到免单
+18 8,12,20 * * * node /scripts/jd_speed_signfree.js >> /scripts/logs/jd_speed_signfree.log 2>&1
+#京喜欢乐砍
+55 3,20 * * * python3 /jd/scripts/jd_jxhlk.py >> /jd/log/jd_jxhlk.log 2>&1
 #早起签到
 1 6,7 * * * python3 /jd/scripts/jd_zqfl.py >> /jd/log/jd_zqfl.log 2>&1
 #
