@@ -4,6 +4,8 @@
 * 搬运自用。
 
 ### 特别声明:
+Git报错解决：OpenSSL SSL_read: Connection was reset, errno 10054
+https://blog.csdn.net/qq_29493173/article/details/114534057
 
 * 本仓库发布的MyActions项目中涉及的任何解锁和解密分析脚本，仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
 
