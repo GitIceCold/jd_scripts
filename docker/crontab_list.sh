@@ -41,16 +41,12 @@
 35 0-23/1 * * * node /scripts/jd_wsdlb.js >> /scripts/logs/jd_wsdlb.log 2>&1
 #
 4 1,3 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
-#赚京豆
-0 0,1 * * * node /scripts/jd_syj.js >> /scripts/logs/jd_syj.log 2>&1
 #
 40 * * * * node /scripts/jx_mc_coin.js >> /scripts/logs/jx_mc_coin.log 2>&1
 #
 5 3,19 * * * node /scripts/jd_unsubscribe.js >> /scripts/logs/jd_unsubscribe.log 2>&1
 #东东萌宠
 45 6-18/6 * * * node /scripts/jd_pet.js >> /scripts/logs/jd_pet.log 2>&1
-#锦鲤红包
-1 2 * * * node /scripts/jd_redPacket.js >> /scripts/logs/jd_redPacket.log 2>&1
 #挑一挑
 1 3,9,18 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
 #
@@ -87,8 +83,6 @@
 0 0 * * * node /scripts/jd_bean_change1.js >> /scripts/logs/jd_bean_change1.log 2>&1
 #
 1 0 * * *  node /scripts/jd_shop.js >> /scripts/logs/jd_shop.log 2>&1
-#京喜牧场
-48 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #摇钱树
 23 0-23/2 * * * node /scripts/jd_moneyTree.js >> /scripts/logs/jd_moneyTree.log 2>&1
 #排行榜
@@ -103,6 +97,8 @@
 46 6,13,22 * * * node /scripts/jd_small_home.js >> /scripts/logs/jd_small_home.log 2>&1
 #美丽研究院
 16 9,15,17 * * * node /scripts/jd_beauty.js >> /scripts/logs/jd_beauty.log 2>&1
+#京喜牧场
+48 0-23/3 * * * node /scripts/jd_jxmc.js >> /scripts/logs/jd_jxmc.log 2>&1
 #京东试用
 30 10 * * * node /scripts/jd_try.js >> /scripts/logs/jd_try.log 2>&1
 #领现金
@@ -169,10 +165,6 @@
 55 6 * * * node /scripts/jd_unsubscriLive.js >> /scripts/logs/jd_unsubscriLive.log 2>&1
 #女装盲盒
 45 2,20 * * * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
-#开卡46
-18 1,20  * * * node /scripts/jd_opencard46.js >> /scripts/logs/jd_opencard46.log 2>&1
-#开卡49
-8 0,22 * * * node /scripts/jd_opencard49.js >> /scripts/logs/jd_opencard49.log 2>&1
 #开卡50
 36 0 1-12 11 * node /scripts/jd_opencard50.js >> /scripts/logs/jd_opencard50.log 2>&1
 #开卡51
@@ -195,8 +187,10 @@
 30 10 1-13 11 * node /scripts/jd_opencard59.js >> /scripts/logs/jd_opencard59.log 2>&1
 #开卡60
 47 10 1-11 11 * node /scripts/jd_opencard60.js >> /scripts/logs/jd_opencard60.log 2>&1
-#开卡64
-47 14 1-3 11 * node /scripts/jd_opencard64.js >> /scripts/logs/jd_opencard64.log 2>&1
+#开卡61
+47 2 1-11 11 * node /scripts/jd_opencard61.js >> /scripts/logs/jd_opencard61.log 2>&1
+#开卡62
+45 2,21 5-12 11 * node /scripts/jd_opencard62.js >> /scripts/logs/jd_opencard62.log 2>&1
 #积分换话费
 43 5,17 * * * node /scripts/jd_dwapp.js >> /scripts/logs/jd_dwapp.log 2>&1
 # 领券中心签到
@@ -249,8 +243,6 @@
 0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 # 手机狂欢城助力
 10 0,8 * * * node /scripts/jd_carnivalcity_help.js >> /scripts/logs/jd_carnivalcity_help.log 2>&1
-# 电竞预言家
-23 10,11 * * * node /scripts/jd_lol.js >> /scripts/logs/jd_lol.log 2>&1
 # 发财大赢家
 1 2,10 * * * node /scripts/jd_fcdyj.js >> /scripts/logs/jd_fcdyj.log 2>&1
 # 翻翻乐
@@ -266,10 +258,18 @@
 # 京东超级盒子
 24 2,3 * * * node /scripts/jd_superbox.js >> /scripts/logs/jd_superbox.log 2>&1
 # 双11特务
-10 9,13,16,19,20 2-8 11 * node /scripts/jd_tw.js >> /scripts/logs/jd_tw.log 2>&1
+10 9,13,15,16,19,20 2-8 11 * node /scripts/jd_tewu.js >> /scripts/logs/jd_tewu.log 2>&1
+# 手机竞猜
+0 1,18 * * * node /scripts/jd_sjjc.js >> /scripts/logs/jd_sjjc.log 2>&1
+# 星推官
+22 3,19 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1
+# 牛牛福利
+1 9,19 * * * node /scripts/jd_nnfl.js >> /scripts/logs/jd_nnfl.log 2>&1
+# 热血心跳,狂解压
+10 2,9,17 * * * node /scripts/jd_vivo.js >> /scripts/logs/jd_vivo.log 2>&1
+# 双11环游记大富翁
+0 2 1-11 11 * node /scripts/jd_travel_shop.js >> /scripts/logs/jd_travel_shop.log 2>&1
 #京喜欢乐砍
 55 3,20 * * * python3 /jd/scripts/jd_jxhlk.py >> /jd/log/jd_jxhlk.log 2>&1
 #早起签到
 1 6,7 * * * python3 /jd/scripts/jd_zqfl.py >> /jd/log/jd_zqfl.log 2>&1
-#
-59 23 * * * python3 /jd/scripts/jd_blueCoin.py >> /jd/log/jd_blueCoin.log 2>&1
